@@ -22,7 +22,6 @@ public class FadeController : MonoBehaviour
 
     void Update ()
     {
-        // isFadeOut =true;
         if (isFadeOut)
         {
             StartFadeOut ();

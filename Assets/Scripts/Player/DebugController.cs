@@ -11,12 +11,19 @@ public class DebugController : MonoBehaviour
     float z = 0;
     [SerializeField]
     Transform moveTarget = null;
+
+    void Reset()
+    {
+        if(!moveTarget)
+        {
+            moveTarget = GetComponentInChildren<OVRCameraRig>().transform.Find("TrackingSpace/CenterEyeAnchor");
+        }
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow))
@@ -54,9 +61,6 @@ public class DebugController : MonoBehaviour
         }
 
         Vector3 move = (x * moveTarget.transform.right.normalized  + z * moveTarget.transform.forward.normalized  ) * moveSpeed * Time.deltaTime;
-        // Vector3 move = (x * moveTarget.transform.right.normalized  + z * moveTarget.transform.forward.normalized  );
-
-        Debug.Log(move.ToString("f5") + " : move");
         transform.Translate(move, Space.World);
     }
 }

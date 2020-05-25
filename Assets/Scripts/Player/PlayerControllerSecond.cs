@@ -4,8 +4,8 @@ using UnityEngine;
 
 // Update と FixedUpdate で記述を分けてPlayerControllerの機能を記述
 
-// 入力操作処理以外は全てFixedUpdateに書いてみる
-public class PlayerController : MonoBehaviour
+
+public class PlayerControllerSecond : MonoBehaviour
 {
     Rigidbody rb;
     private float angleSpeed = 30.0f;
